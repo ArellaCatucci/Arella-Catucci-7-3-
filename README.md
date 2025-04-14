@@ -1,2 +1,3 @@
 # Arella-Catucci-7-3-
 Trayecto Pedagógico Interdisciplinario: Programación, Redes, Hardware, Asistencia
+El proyecto de boletin digital fue planteado como un boletin digital que se pueda utilizar como una red social, para que su uso sea innovador y al mismo tiempo practico, donde tanto alumnos, preceptores, padres y profesores, tengan comunicación abierta entre ellos. Donde los alumnos puedan comunicarle a los preceptores si falta entregar notas directamente por el campus del boletin digital, donde los preceptores puedan subir comunicados para los profesores. Este es un proyecto con el cual mi empresa espera poder implementarlo dentro de las escuelas inicialmente en las escuelas a nivel ciudad y en un futuro presentarlo a nivel provincia y pais. 
