@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "26bfd1e4-a761-4c4e-831c-2f4a481becb5",
+		"name": "Ejercicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30296216"
+	},
+	"item": [
+		{
+			"name": "Restablecer BD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tvworld/public/api/restablecer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"restablecer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar media_files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tvworld/public/api/media_files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"media_files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar media_files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tvworld/public/api/media_files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"media_files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detalle media_files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tvworld/public/api/media_files/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"media_files",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear media_files",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Nombre ejemplo\",\n    \"fecha\": \"2025-12-31 10:00:00\",\n    \"servicios\": [\n        2,\n        3\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tworld/public/api/media_filesntos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"media_filesntos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar media_filesntos",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Nombre ejemplo actualizado\",\n    \"fecha\": \"2025-12-31 10:00:00\",\n    \"servicios\": [\n        2,\n        3\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tvworld/public/api/media_files/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"media_files",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar media_filesntos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tvworld/public/api/media_files/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tvworld",
+						"public",
+						"api",
+						"media_files",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,30 @@
+<div>
+    <app-header></app-header>
+</div>
+
+<div class="contact-info">
+    <h3>Información de Contacto</h3>
+    <ul>
+      <li *ngIf="contacts.facebook">
+        <a [href]="contacts.facebook" target="_blank">Facebook</a>
+      </li>
+      <br>
+
+      <li *ngIf="contacts.instagram">
+        <a [href]="contacts.instagram" target="_blank">Instagram</a>
+      </li>
+      <br>
+
+      <li *ngIf="contacts.email">
+        <a [href]="'mailto:' + contacts.email">Correo Electrónico</a>
+      </li>
+      <br>
+
+      <li *ngIf="contacts.phone">
+        <a [href]="'tel:' + contacts.phone">Teléfono</a>
+      </li>
+      <br>
+
+    </ul>
+  </div>
+  

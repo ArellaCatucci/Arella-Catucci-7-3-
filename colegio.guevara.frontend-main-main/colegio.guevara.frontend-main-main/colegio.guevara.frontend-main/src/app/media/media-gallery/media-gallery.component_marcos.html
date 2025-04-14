@@ -1,0 +1,55 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h5>Nueva Publicación</h5>
+  </div>
+  <div class="card-body">
+    <!-- Campo para Título -->
+    <div class="mb-3">
+      <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="newTitle" 
+        placeholder="Título">
+    </div>
+
+    <!-- Selector de Tipo (Imagen o Video) -->
+    <div class="mb-3">
+      <select 
+        class="form-select" 
+        [(ngModel)]="newType">
+        <option value="image">Imagen</option>
+        <option value="video">Video</option>
+      </select>
+    </div>
+
+    <!-- Campo para Subir Archivo -->
+    <div class="mb-3">
+      <input 
+        type="file" 
+        class="form-control" 
+        accept="image/*,video/*" 
+        (change)="handleFileInput($event)">
+    </div>
+
+    <!-- Botón para Enviar (dentro del card-body) -->
+    <button 
+      class="btn btn-primary w-100 mt-3" 
+      (click)="addMediaUploadFile()" 
+      [disabled]="!newFile || !newTitle.trim()">
+      Publicar
+    </button>
+  </div>
+</div>
+
+
+<div class="container mt-4">
+  <!-- Mostrar tarjetas -->
+  <div class="row justify-content-center">
+    <div 
+      class="col-12 col-md-6 col-lg-4 mb-4" 
+      *ngFor="let media of mediaItems">
+      <app-media-card [media]="media" [usuarioConectado]="usuarioConectado" [usuarioURL]="usuarioURL" ></app-media-card>
+    </div>
+  </div>
+  
+</div>

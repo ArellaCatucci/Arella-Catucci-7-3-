@@ -1,0 +1,40 @@
+/* Centrar contenido */
+.logout-container {
+    text-align: center;
+    padding: 50px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+/* Estilo para el título */
+.logout-container h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el mensaje */
+.logout-container p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Botón de regreso al login */
+.btn-primary {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}

@@ -1,0 +1,42 @@
+/* Estilo general de la sidebar */
+#sidebar {
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1030;
+  transition: all 0.3s;
+}
+
+/* Sidebar oculta (solo en pantallas pequeñas) */
+#sidebar.active {
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    left: -250px; /* Oculta la sidebar */
+  }
+}
+
+/* Contenido principal */
+.flex-grow-1 {
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+}
+
+@media (max-width: 768px) {
+  .flex-grow-1 {
+    margin-left: 0;
+  }
+}
+
+/* Botón para alternar la sidebar */
+button1 {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1040;
+}

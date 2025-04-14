@@ -1,0 +1,27 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+  <button class="btn btn-primary d-md-none" (click)="toggleSidebar()">☰</button>
+  <nav id="sidebar" class="bg-light border-end">
+    <ul class="list-unstyled p-3">
+      <li *ngIf="isConnected"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+     <li><a routerLink="/about" routerLinkActive="active">Acerca de</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+      <li *ngIf="!isConnected"><a routerLink="/login" routerLinkActive="active">Iniciar Sesión</a></li>
+      <li *ngIf="isConnected"><a routerLink="/logout" routerLinkActive="active">Cerrar Sesión</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+<!-- 
+<app-footer [titulo]="title" (enviar)="procesarCounter($event)"></app-footer> -->
+
+
+

@@ -1,0 +1,26 @@
+<div>
+    <app-header></app-header>
+</div>
+
+<div>
+    <form (submit)="login(); $event.preventDefault()">
+        <h3 class="text-primary">Información de Acceso</h3>
+        <div class="form-group">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" [(ngModel)]="username" class="form-control" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" [(ngModel)]="password" class="form-control" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+        <br>
+     
+        <!-- Mostrar el mensaje de error si existe -->
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </form>
+</div>

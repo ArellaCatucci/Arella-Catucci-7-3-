@@ -1,0 +1,19 @@
+<div>
+  <app-header></app-header>
+</div>
+
+<div class="welcome-container" *ngIf="usuarioConectado">
+  <h1>👋 ¡Bienvenido/a, {{ usuarioConectado }}!</h1>
+</div>
+
+<div class="home">
+  <h2>Boletines de Calificaciones</h2>
+  <app-media-gallery 
+      [usuarioConectado]="usuarioConectado"
+      [usuarioURL]="usuarioURL"
+      [mediaItems]="mediaItems"
+      [usuarioRol]="usuarioRol">
+  </app-media-gallery>
+</div>
+
+  

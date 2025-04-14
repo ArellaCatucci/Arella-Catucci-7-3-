@@ -1,0 +1,1863 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "AuthService",
+            "id": "injectable-AuthService-2f3768965ca93bf36512969cd959adeea32216afc23c83154a6a8023067cd722719f33c1814d310f8f1a3a900882884e05d8b16083693d6ceef2afce20763008",
+            "file": "src/app/services/auth.service.ts",
+            "properties": [
+                {
+                    "name": "baseUrl",
+                    "defaultValue": "'http://localhost:8000'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "usuarioConectado",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methods": [
+                {
+                    "name": "login",
+                    "args": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<any>",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\nimport { Observable } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n\n  private baseUrl = 'http://localhost:8000';\n  usuarioConectado:string = '';\n\n  constructor(private http: HttpClient) { }\n\n  login(username: string, password: string): Observable<any> {\n    const url = `${this.baseUrl}/login/`;\n    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });\n    const body = { username, password };\n    \n\n    const salida = this.http.post(url, body, { headers });\n    //console.log(salida);\n    this.usuarioConectado = username;\n\n    return salida;\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "LoginService",
+            "id": "injectable-LoginService-667b2e6d7c5da6f96ce0afb210db7a2dd40a7a571190e6ed3944cb2b3bba1a94cb39adda95cd3f8bbd12c99a5ea7596d13fb57b9e5dd4c3ae7aa85f13b963cdd",
+            "file": "src/app/services/login.service.ts",
+            "properties": [
+                {
+                    "name": "_datos",
+                    "defaultValue": "['dato1', 'dato2', 'dato3', 'dato4']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class LoginService {\n\n  private _datos = ['dato1', 'dato2', 'dato3', 'dato4'];\n\n  get datos(){\n    return [...this._datos]\n  }\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 12
+            },
+            "accessors": {
+                "datos": {
+                    "name": "datos",
+                    "getSignature": {
+                        "name": "datos",
+                        "type": "",
+                        "returnType": "",
+                        "line": 10
+                    }
+                }
+            },
+            "extends": [],
+            "type": "injectable"
+        },
+        {
+            "name": "UserService",
+            "id": "injectable-UserService-4929c5f2dca77cc9e86b0fd90491ddb88a1301de8f1844f2ea31e9a3295fd7f26c0c0086ea4b23236abb2e0a31b9706de13948d25c91084a537d7262f8598b41",
+            "file": "src/app/services/user.service.ts",
+            "properties": [
+                {
+                    "name": "_usuarioConectado",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class UserService {\n  private _usuarioConectado: string = '';\n\n  set usuarioConectado(usuario: string) {\n    this._usuarioConectado = usuario;\n  }\n\n  get usuarioConectado(): string {\n    return this._usuarioConectado;\n  }\n\n  get isConnected(): boolean {\n    return this._usuarioConectado !== '';\n  }\n  \n}\n",
+            "accessors": {
+                "usuarioConectado": {
+                    "name": "usuarioConectado",
+                    "setSignature": {
+                        "name": "usuarioConectado",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "usuario",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 9,
+                        "jsdoctags": [
+                            {
+                                "name": "usuario",
+                                "type": "string",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "usuarioConectado",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 13
+                    }
+                },
+                "isConnected": {
+                    "name": "isConnected",
+                    "getSignature": {
+                        "name": "isConnected",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 17
+                    }
+                }
+            },
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AboutComponent",
+            "id": "component-AboutComponent-0af3d4bd1c9ee41fc5e52df32874079bb0c4b85e86b5ab5e5b5c349f3057e017ff571c3a39b15f377613eeec446368314545c4b6a435ac2e9bab40e2401452f5",
+            "file": "src/app/about/about.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-about",
+            "styleUrls": [
+                "./about.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./about.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-about',\n  templateUrl: './about.component.html',\n  styleUrls: ['./about.component.css']\n})\nexport class AboutComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./about.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>Acerca de Marcos!</p>\n"
+        },
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-f51dc92306ecbe6762012f5877b91af6f126576d8a39268457de9ade93122a228215f3b4c4f4376941b1533d718ddd6dfa30d22eb075403191406d76bc6c9176",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "counterRecibido",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'socialnet16'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "usuarioConectado",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "procesarCounter",
+                    "args": [
+                        {
+                            "name": "count",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "count",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { LoginService } from './services/login.service';\nimport { UserService } from './services/user.service';\n\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\n\nexport class AppComponent {\n  title = 'socialnet16';\n  \n  counterRecibido:number = 0;\nusuarioConectado: any;\n\n  procesarCounter(count: number) {\n    this.counterRecibido = count;\n\n  }\n\n  get isConnected() {\n    return this.userService.isConnected;\n  }\n\n  get datos() {\n    return this.loginService.datos;\n    //return ['dato1', 'dato2', 'dato3'];\n  }\n  constructor(\n    private loginService: LoginService,\n    private userService: UserService\n  ) {\n\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "nav ul {\n    list-style-type: none;\n    padding: 0;\n    display: flex;\n    gap: 1rem;\n  }\n  \n  nav li {\n    display: inline;\n  }\n  \n  nav a {\n    text-decoration: none;\n    color: #007bff;\n  }\n  \n  nav a.active {\n    font-weight: bold;\n    color: #0056b3;\n  }\n\n  a.active {\n    font-weight: bold;\n    color: red;\n  }",
+                    "styleUrl": "./app.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "loginService",
+                        "type": "LoginService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 30,
+                "jsdoctags": [
+                    {
+                        "name": "loginService",
+                        "type": "LoginService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "accessors": {
+                "isConnected": {
+                    "name": "isConnected",
+                    "getSignature": {
+                        "name": "isConnected",
+                        "type": "",
+                        "returnType": "",
+                        "line": 23
+                    }
+                },
+                "datos": {
+                    "name": "datos",
+                    "getSignature": {
+                        "name": "datos",
+                        "type": "",
+                        "returnType": "",
+                        "line": 27
+                    }
+                }
+            },
+            "templateData": "<app-header [titulo]=\"title\"></app-header>\n<nav>\n  <ul>\n    <li><a routerLink=\"/home\" routerLinkActive=\"active\">Home</a></li>\n    <li *ngIf=\"isConnected\"><a routerLink=\"/edicion\" routerLinkActive=\"active\">Edición</a></li>\n    <li><a routerLink=\"/about\" routerLinkActive=\"active\">Acerca de</a></li>\n    <li><a routerLink=\"/contact\" routerLinkActive=\"active\">Contacto</a></li>\n    <li *ngIf=\"!isConnected\"><a routerLink=\"/login\" routerLinkActive=\"active\">Iniciar Sesión</a></li>\n    <li *ngIf=\"isConnected\"><a routerLink=\"/logout\" routerLinkActive=\"active\">Cerrar Sesión</a></li>\n  </ul>\n</nav>\n\n<!-- <p>Lista de datos {{ datos}} </p>\n<ul>\n  <li *ngFor=\"let item of datos\">{{item}}</li>\n</ul>\n\n\n<p>Se procesaron {{counterRecibido}}</p> -->\n<!-- \n<app-footer [titulo]=\"title\" (enviar)=\"procesarCounter($event)\"></app-footer> -->\n<router-outlet></router-outlet>\n\n\n"
+        },
+        {
+            "name": "BodyComponent",
+            "id": "component-BodyComponent-07c7c35f489d2c6d2816d90d086ea380d8743d0462b75f69778f933f5cb98be0b46820a27f814c8a304910868d2061cda9db6bb89f76830cadf91fe421f5a9fe",
+            "file": "src/app/pages/body/body.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-body",
+            "styleUrls": [
+                "./body.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./body.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-body',\n  templateUrl: './body.component.html',\n  styleUrls: ['./body.component.css']\n})\nexport class BodyComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./body.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>body works!</p>\n"
+        },
+        {
+            "name": "ContactComponent",
+            "id": "component-ContactComponent-1b9d4fda48e7e964451a1a298ca6ee2ceb7f1d79e1e7769da87a1be475443a4fd4215b95e2db5676b8e97ccfb480a639666ed35cf72f92b4e0b1ec07f29227eb",
+            "file": "src/app/contact/contact.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-contact",
+            "styleUrls": [
+                "./contact.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./contact.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-contact',\n  templateUrl: './contact.component.html',\n  styleUrls: ['./contact.component.css']\n})\nexport class ContactComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./contact.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>contact works!</p>\n"
+        },
+        {
+            "name": "EdicionComponent",
+            "id": "component-EdicionComponent-21d08611b7697deb1460afb6f59f8f3372d209bee84661e5dc69b6e1bfa73e7cd7c4d859de1f88a32e8284875aa39b33530a9e70c27edbe6f3a38f362861ffa7",
+            "file": "src/app/edicion/edicion.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-parcial",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./edicion.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "eventos",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 37,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "miFormulario",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "servicios",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "urlAPI",
+                    "defaultValue": "'http://localhost/parcial22024/public/api/?accion='",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "String",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 39,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "borrar",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 91,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "cargarEventos",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 107,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "editar",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 79,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "enviar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 53,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 119,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "restablecerBD",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 133,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, OnDestroy  } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { CommonModule } from '@angular/common';\nimport { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';\n\n@Component({\n  selector: 'app-parcial',\n  standalone: true,\n  imports: [CommonModule, ReactiveFormsModule],\n  templateUrl: './edicion.component.html',\n})\nexport class EdicionComponent implements OnInit {\n  public miFormulario: FormGroup;\n  public eventos: any[] = [];\n  public servicios: any[] = [];\n  private urlAPI: String = 'http://localhost/parcial22024/public/api/?accion=';\n\n  constructor(private http: HttpClient, private fb: FormBuilder)\n  {\n    this.miFormulario = this.fb.group({\n      id: [null, []],\n      nombre: ['', [Validators.required ]],\n      fecha: ['', [Validators.required, Validators.min(1900) ]],\n      servicios: [[], []]\n    });\n  }\n\n  \n  \n  enviar() {\n    if (this.miFormulario.value.id==null) {\n      this.http.post(this.urlAPI + 'eventos/', this.miFormulario.value)\n        .subscribe(\n          (response: any) => {\n            this.cargarEventos();\n            this.miFormulario.reset();\n          },\n          (error) => {\n            console.error(error);\n          }\n        );\n    } else {\n      this.http.patch(this.urlAPI + 'eventos/' + this.miFormulario.value.id, this.miFormulario.value)\n        .subscribe(\n          (response: any) => {\n            this.cargarEventos();\n            this.miFormulario.reset();\n          },\n          (error) => {\n            console.error(error);\n          }\n        );\n    }\n  }\n\n  editar(id: number) {\n    this.http.get(this.urlAPI + 'eventos/' + id)\n      .subscribe(\n        (response: any) => {\n          this.miFormulario.reset(response);\n        },\n        (error) => {\n          console.error(error);\n        }\n      );\n  }\n\n  borrar(id: number) {\n    if (confirm('¿Estás seguro de querer borrar este evento?')) {\n      this.http.delete(this.urlAPI + 'eventos/'+ id)\n        .subscribe(\n          (response: any) => {\n            console.log('Borrado ok #' + id);\n            this.cargarEventos();\n          },\n          (error) => {\n            console.error(error);\n          }\n        );\n    }\n  }\n\n  // DE REGALO!\n  cargarEventos() {\n    this.http.get(this.urlAPI + 'eventos')\n      .subscribe(\n        (response: any) => {\n          this.eventos = response;\n         },\n        (error) => {\n          console.error(error);\n        }\n      );\n  }\n\n  ngOnInit() {\n    this.cargarEventos();\n\n    this.http.get(this.urlAPI+ 'servicios')\n    .subscribe(\n      (response: any) => {\n        this.servicios = response;\n      },\n      (error) => {\n        console.error(error);\n      }\n    );\n  }\n\n  restablecerBD (): void\n  {\n    this.http.post(this.urlAPI + 'restablecer', {})\n      .subscribe(\n        (response: any) => {\n          let ya = new Date();\n          console.log(\"Restablecido Ok \" + ya.toISOString());\n          this.cargarEventos();\n        },\n        (error) => {\n          console.error(error);\n        }\n      );\n  }\n\n  \n\n \n\n\n\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 39,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"container\">\n  <div class=\"d-grid mb-2 mt-2\">\n    <button type=\"button\" (click)=\"restablecerBD()\" class=\"btn btn-danger btn-block\">Restablecer BBDD</button>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-8\">\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th scope=\"col\" class=\"text-center\">#</th>\n            <th scope=\"col\" class=\"text-center\">Nombre</th>\n            <th scope=\"col\" class=\"text-center\">Fecha</th>\n            <th scope=\"col\" class=\"text-center\">Servicios</th>\n            <th scope=\"col\" class=\"text-center\">Acciones</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let e of eventos\">\n            <th scope=\"row\" class=\"text-center\">{{ e.id }}</th>\n            <td>{{ e.nombre }}</td>\n            <td class=\"text-center\">{{ e.fecha }}</td>\n            <td class=\"text-center\">\n              <span *ngFor=\"let s of e.servicios\" class=\"badge bg-primary me-1\">{{ s }}</span>\n            </td>\n            <td class=\"text-center text-nowrap\">\n              <button type=\"button\" class=\"btn btn-sm btn-primary me-1\" (click)=\"editar(e.id)\">Editar</button>\n              <button type=\"button\" class=\"btn btn-sm btn-success\" (click)=\"borrar(e.id)\">Borrar</button>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <div class=\"col-4\">\n      <form [formGroup]=\"miFormulario\">\n        <div class=\"mb-3 row\">\n          <label for=\"titulo\" class=\"form-label\">Nombre</label>\n          <input type=\"text\" class=\"form-control\" name=\"titulo\" formControlName=\"nombre\" required>\n        </div>\n        <div class=\"mb-3\">\n          <label for=\"anio\" class=\"form-label\">Fecha</label>\n          <input type=\"datetime-local\" class=\"form-control\" name=\"fecha\" formControlName=\"fecha\" required>\n        </div>\n        <div class=\"mb-3\">\n          <label for=\"generos\" class=\"form-label\">Servicios</label>\n          <select class=\"form-select\" multiple [size]=\"servicios.length\" formControlName=\"servicios\">\n            <option *ngFor=\"let e of servicios\" [value]=\"e.id\">{{ e.descripcion }}</option>\n          </select>\n        </div>\n        <button type=\"button\" class=\"btn btn-outline-primary me-1\" (click)=\"enviar()\" [disabled]=\"miFormulario.invalid\">Guardar</button>\n        <button type=\"reset\" class=\"btn btn-outline-secondary\">Descartar</button>\n      </form>\n    </div>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-7825454a3fcd5ceea645f5af9eb059ee06c870ad0b266ed313ba91a60b0dcf766175b309ecb63882e701af7901b27538a965d3a661a72f8a1f11fff9740e0c80",
+            "file": "src/app/pages/footer/footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-footer",
+            "styleUrls": [
+                "./footer.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "titulo",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "String",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "enviar",
+                    "defaultValue": "new EventEmitter<number>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "counter",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "salida",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "String",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "procesar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { LoginService } from 'src/app/services/login.service';\n\n@Component({\n  selector: 'app-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.css']\n})\nexport class FooterComponent {\n\n  @Input() titulo:String = '';\n\n  salida:String = '';\n  counter:number = 0;\n\n  @Output() enviar = new EventEmitter<number>();\n\n  procesar() {\n    this.counter = this.counter + 1;\n    this.salida = 'Click';\n    this.enviar.emit(this.counter)\n    console.log('Click')\n  }\n\n  get datos() {\n    return this.loginService.datos;\n  }\n\n\n  constructor(private loginService:LoginService) {\n    //console.log(this.datos, 'aca')  \n  }\n}\n\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./footer.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "loginService",
+                        "type": "LoginService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 27,
+                "jsdoctags": [
+                    {
+                        "name": "loginService",
+                        "type": "LoginService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "accessors": {
+                "datos": {
+                    "name": "datos",
+                    "getSignature": {
+                        "name": "datos",
+                        "type": "",
+                        "returnType": "",
+                        "line": 25
+                    }
+                }
+            },
+            "templateData": "<!-- <button class=\"btn btn-info\" (click)=\"procesar()\">Revisión</button>\n<p>footer works! {{titulo}} {{counter}}</p> -->\n"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-5531d4bedbd0676fb9ea92d43e5e1f88cd73bd2bc80bee0c49962532575547fcec5fcca0c212f54e044bc022de8a660e756273acc76f4e957c9de28b5e4f7ffa",
+            "file": "src/app/pages/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [
+                "./header.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "titulo",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "String",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.css']\n})\nexport class HeaderComponent {\n\n  @Input() titulo:String = '';\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./header.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>header works! {{ titulo }}</p>\n"
+        },
+        {
+            "name": "HomeComponent",
+            "id": "component-HomeComponent-4d7e94703baf03bc797dabfa9945ff4f3025e6ca9b651ef76a3df5b19c4871002b9a86082fe04b23e793c60f33b5b14eefa7d03499efcc479e907c21ae0cbd06",
+            "file": "src/app/home/home.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-home",
+            "styleUrls": [
+                "./home.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./home.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "mediaItems",
+                    "defaultValue": "[\n    { title: 'Imagen 1', owner: 'Felipe', type: 'image', src: 'https://via.placeholder.com/300' },\n    { title: 'Imagen 1.1', owner: 'Marcos', type: 'image', src: 'https://via.placeholder.com/300' },\n    { title: 'Video 1', owner: 'JUan', type: 'video', src: 'https://www.w3schools.com/html/mov_bbb.mp4' },\n    { title: 'Imagen 2',owner: 'Pedro', type: 'image', src: 'https://via.placeholder.com/400' },\n    { title: 'Video 2', owner: 'Felipe', type: 'video', src: 'https://www.w3schools.com/html/movie.mp4' },\n    { title: 'Luna', owner: 'Felipe', type: 'image', src: 'https://www.researchgate.net/profile/Gareth-Roberts-3/publication/251839685/figure/fig3/AS:652228557803529@1532514814266/a-A-SEVIRI-400-x-400-pixel-scene-of-southern-Africa-September-4-th-1212pm.png'}\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "usuarioConectado",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { UserService } from '../services/user.service';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.css']\n})\nexport class HomeComponent {\n\n  mediaItems: { title: string; owner:string; type: 'image' | 'video'; src: string }[] = [\n    { title: 'Imagen 1', owner: 'Felipe', type: 'image', src: 'https://via.placeholder.com/300' },\n    { title: 'Imagen 1.1', owner: 'Marcos', type: 'image', src: 'https://via.placeholder.com/300' },\n    { title: 'Video 1', owner: 'JUan', type: 'video', src: 'https://www.w3schools.com/html/mov_bbb.mp4' },\n    { title: 'Imagen 2',owner: 'Pedro', type: 'image', src: 'https://via.placeholder.com/400' },\n    { title: 'Video 2', owner: 'Felipe', type: 'video', src: 'https://www.w3schools.com/html/movie.mp4' },\n    { title: 'Luna', owner: 'Felipe', type: 'image', src: 'https://www.researchgate.net/profile/Gareth-Roberts-3/publication/251839685/figure/fig3/AS:652228557803529@1532514814266/a-A-SEVIRI-400-x-400-pixel-scene-of-southern-Africa-September-4-th-1212pm.png'}\n  ];\n\n  \n  usuarioConectado: string = '';\n\n  constructor(private router: Router, private userService: UserService) {}\n\n  ngOnInit() {\n    //this.usuarioConectado = this.userService.usuarioConectado || 'Usuario no identificado';\n    this.usuarioConectado = localStorage.getItem('usuarioConectado') || 'Usuario no identificado';\n    if (this.usuarioConectado === 'Usuario no identificado') {\n      this.router.navigate(['/login']);\n    }\n  }\n  \n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".home {\n    text-align: center;\n    margin: 20px;\n  }\n  \n  h2 {\n    margin-bottom: 20px;\n    color: #333;\n  }\n  ",
+                    "styleUrl": "./home.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 22,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<p *ngIf=\"usuarioConectado\">Bienvenido/a {{ usuarioConectado }}</p>\n<div class=\"home\">\n    <h2>Galería de Medios</h2>\n    <app-media-gallery [mediaItems]=\"mediaItems\"></app-media-gallery>\n  </div>\n  \n"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-d6b56097e74acd4897c93a3081fde47d5a2faa7dde06e109b75c7eb934c37b57770ca4be237dfee6ea4747d838ffeb48cbe7e0d48b80e86f7c744a1034696c0c",
+            "file": "src/app/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-login",
+            "styleUrls": [
+                "./login.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "password",
+                    "defaultValue": "'securepassword123'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "username",
+                    "defaultValue": "'Juan Pérez'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "usuarioConectado",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "login",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { AuthService } from '../services/auth.service';\nimport { Router } from '@angular/router';\nimport { UserService } from '../services/user.service';\n\n@Component({\n  selector: 'app-login',\n  templateUrl: './login.component.html',\n  styleUrls: ['./login.component.css']\n})\n\nexport class LoginComponent {\n  username : string = 'Juan Pérez';\n  password : string = 'securepassword123';\n  usuarioConectado : string ='';\n\n  constructor(private authService: AuthService, private router: Router, private userService: UserService) {}\n\n  login() {\n    this.authService.login(this.username, this.password).subscribe({\n      next: () => {\n        localStorage.setItem('usuarioConectado', this.username); // Almacena el usuario\n        this.userService.usuarioConectado = this.username; // Almacena el usuario\n        this.router.navigate(['/home']); // Navega sin depender del estado\n      },\n      error: (error) => console.error('Login failed:', error),\n    });\n  }\n  \n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./login.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "authService",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "authService",
+                        "type": "AuthService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<div>\n    <form (submit)=\"login(); $event.preventDefault()\">\n\n        <div class=\"form-group\">\n            <label for=\"username\">Usuario</label>\n            <input type=\"text\" id=\"username\" [(ngModel)]=\"username\" class=\"form-control\" name=\"username\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"password\">Contraseña</label>\n            <input type=\"password\" id=\"password\" [(ngModel)]=\"password\" class=\"form-control\" name=\"password\" required>\n        </div>\n\n        <div class=\"form-group\">\n            <button class=\"btn btn-primary\" type=\"submit\">Login</button>\n          \n        </div>\n    </form>\n</div>\n"
+        },
+        {
+            "name": "LogoutComponent",
+            "id": "component-LogoutComponent-9d9a3b8985223c26dccf626facb968f0c973b18c87ea60b58a257cfbdb37e8183624bfb6ce42be86542ac0f309f452b651450818f72bf17c97d00f4766474d68",
+            "file": "src/app/logout/logout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-logout",
+            "styleUrls": [
+                "./logout.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./logout.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { UserService } from '../services/user.service';\n\n@Component({\n  selector: 'app-logout',\n  templateUrl: './logout.component.html',\n  styleUrls: ['./logout.component.css']\n})\nexport class LogoutComponent {\n\n  constructor(private userService: UserService) {\n    \n    localStorage.removeItem('usuarioConectado');\n    this.userService.usuarioConectado = '';\n    console.log('Logout')\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./logout.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<p>logout works!</p>\n"
+        },
+        {
+            "name": "MediaCardComponent",
+            "id": "component-MediaCardComponent-448d13c77696818289df3df6fa7dd52365885c42a57e907987a336587f8f4499ddc44990cc57096ff4a5d1591d79b68bb3a47b575b3ce1b947eed6d87a4de6fd",
+            "file": "src/app/media/media-card/media-card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-media-card",
+            "styleUrls": [
+                "./media-card.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./media-card.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "owner",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "src",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'image'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "\"image\" | \"video\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-media-card',\n  templateUrl: './media-card.component.html',\n  styleUrls: ['./media-card.component.css']\n})\nexport class MediaCardComponent {\n  @Input() title: string = ''; // Título del medio\n  @Input() owner: string = ''; // Propietario del medio\n  @Input() type: 'image' | 'video' = 'image'; // Tipo de medio\n  @Input() src: string = ''; // URL del medio\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".card {\n    margin: 20px;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n    overflow: hidden;\n  }\n  \n  .card-title {\n    font-size: 1.2em;\n    margin-bottom: 10px;\n  }\n  \n  .media-container img, \n  .media-container video {\n    max-width: 100%;\n    height: auto;\n    display: block;\n  }\n  ",
+                    "styleUrl": "./media-card.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{ title }}</h5>\n      <h5 class=\"card-subtitle\">{{ owner }}</h5>\n      <div class=\"media-container\">\n        <img *ngIf=\"type === 'image'\" [src]=\"src\" alt=\"{{ title }}\" class=\"img-fluid\">\n        <video *ngIf=\"type === 'video'\" controls>\n          <source [src]=\"src\" type=\"video/mp4\">\n          Tu navegador no soporta la reproducción de video.\n        </video>\n      </div>\n    </div>\n</div>\n  \n"
+        },
+        {
+            "name": "MediaGalleryComponent",
+            "id": "component-MediaGalleryComponent-e18cb581df2edb4e00c6ecb60a7e40c91e87036a02c3236ec6933c5ca276b52fcb52fafcbafacf7bef9d47bad85c2d567a361bef6a88a50f4f023e7f0a6ce61c",
+            "file": "src/app/media/media-gallery/media-gallery.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-media-gallery",
+            "styleUrls": [
+                "./media-gallery.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./media-gallery.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "mediaItems",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "literal type[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-media-gallery',\n  templateUrl: './media-gallery.component.html',\n  styleUrls: ['./media-gallery.component.css']\n})\nexport class MediaGalleryComponent {\n  @Input() mediaItems: { title: string; owner:string; type: 'image' | 'video'; src: string }[] = [];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".gallery {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 10px;\n    justify-content: center;\n  }\n  ",
+                    "styleUrl": "./media-gallery.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"gallery\">\n    <app-media-card \n      *ngFor=\"let item of mediaItems\" \n      [title]=\"item.title\" \n      [owner]=\"item.owner\"\n      [type]=\"item.type\" \n      [src]=\"item.src\">\n    </app-media-card>\n  </div>\n  \n"
+        },
+        {
+            "name": "TitleComponent",
+            "id": "component-TitleComponent-3eab3e4d072112e25992b9cde81e9d1f71be8d1fb01bf5a69096d3d0b0831dd7bbf91522fc937a4f80ddeeb7f489a7ea0bcef2f575c5e9543faf4e25b920947b",
+            "file": "src/app/pages/title/title.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-title",
+            "styleUrls": [
+                "./title.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./title.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-title',\n  templateUrl: './title.component.html',\n  styleUrls: ['./title.component.css']\n})\nexport class TitleComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./title.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>title works!</p>\n"
+        },
+        {
+            "name": "VersionComponent",
+            "id": "component-VersionComponent-c88e562157b24be65cc252ee83cbf343e9bf524e2f977e715684ad328eea65037611b2ee7199cfe1a8bf64fa02f29e53c1804f9c2b7cb8dc7c24e0ddab307aa6",
+            "file": "src/app/version/version.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-version",
+            "styleUrls": [
+                "./version.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./version.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-version',\n  templateUrl: './version.component.html',\n  styleUrls: ['./version.component.css']\n})\nexport class VersionComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./version.component.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>version works!</p>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-792fdedd4a92be4fdc01dcda2dffa3e96e38fff6a8511183d6cfecf52fb15c069147d483bca289414448bd6abb9ab78c97edef0a6933b766c4279b1c5dd425f1",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { AboutComponent } from './about/about.component';\nimport { HomeComponent } from './home/home.component';\nimport { ContactComponent } from './contact/contact.component';\nimport { LoginComponent } from './login/login.component';\nimport { HeaderComponent } from './pages/header/header.component';\nimport { FooterComponent } from './pages/footer/footer.component';\n\nimport { LoginService } from './services/login.service';\nimport { HttpClientModule } from '@angular/common/http';\nimport { FormsModule } from '@angular/forms';\nimport { LogoutComponent } from './logout/logout.component';\nimport { MediaCardComponent } from './media/media-card/media-card.component';\nimport { MediaGalleryComponent } from './media/media-gallery/media-gallery.component';\nimport { VersionComponent } from './version/version.component';\nimport { BodyComponent } from './pages/body/body.component';\nimport { TitleComponent } from './pages/title/title.component';\n@NgModule({\n  declarations: [\n    AppComponent,\n    AboutComponent,\n    HomeComponent,\n    ContactComponent,\n    LoginComponent,\n    HeaderComponent,\n    FooterComponent,\n    LogoutComponent,\n    MediaCardComponent,\n    MediaGalleryComponent,\n    VersionComponent,\n    BodyComponent,\n    TitleComponent,\n  \n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule, \n    HttpClientModule,\n    FormsModule\n  ],\n  providers: [LoginService],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "LoginService"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AboutComponent"
+                        },
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "BodyComponent"
+                        },
+                        {
+                            "name": "ContactComponent"
+                        },
+                        {
+                            "name": "FooterComponent"
+                        },
+                        {
+                            "name": "HeaderComponent"
+                        },
+                        {
+                            "name": "HomeComponent"
+                        },
+                        {
+                            "name": "LoginComponent"
+                        },
+                        {
+                            "name": "LogoutComponent"
+                        },
+                        {
+                            "name": "MediaCardComponent"
+                        },
+                        {
+                            "name": "MediaGalleryComponent"
+                        },
+                        {
+                            "name": "TitleComponent"
+                        },
+                        {
+                            "name": "VersionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-b4c41b61f41d06a39cacd8dfe06a8a33b8747595692e70e4b97f2f5a42dbe2915f41611aa86806018549b7a175262d9fccc04acdea6258f7566416711c685726",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { AboutComponent } from './about/about.component';\nimport { HomeComponent } from './home/home.component';\nimport { ContactComponent} from './contact/contact.component';\nimport { LoginComponent} from './login/login.component';\nimport { LogoutComponent } from './logout/logout.component';\nimport { EdicionComponent } from './edicion/edicion.component';\n\n\nconst routes: Routes = [\n  { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirigir a 'home' por defecto\n  { path: 'home', component: HomeComponent },          // Ruta a HomeComponent\n  { path: 'about', component: AboutComponent },\n  { path: 'contact', component: ContactComponent },\n  { path: 'login', component: LoginComponent },\n  { path: 'logout', component: LogoutComponent},\n  { path: 'edicion', component: EdicionComponent}\n  \n  \n];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": [],
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "redirectTo": "home",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "home",
+                        "component": "HomeComponent"
+                    },
+                    {
+                        "path": "about",
+                        "component": "AboutComponent"
+                    },
+                    {
+                        "path": "contact",
+                        "component": "ContactComponent"
+                    },
+                    {
+                        "path": "login",
+                        "component": "LoginComponent"
+                    },
+                    {
+                        "path": "logout",
+                        "component": "LogoutComponent"
+                    },
+                    {
+                        "path": "edicion",
+                        "component": "EdicionComponent"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/about/about.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AboutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/contact/contact.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ContactComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/edicion/edicion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EdicionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/home/home.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/logout/logout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LogoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/media/media-card/media-card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MediaCardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/media/media-gallery/media-gallery.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MediaGalleryComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/body/body.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BodyComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/title/title.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TitleComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/auth.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AuthService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/login.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "LoginService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/user.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "UserService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/version/version.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VersionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
